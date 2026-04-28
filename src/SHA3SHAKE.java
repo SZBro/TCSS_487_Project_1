@@ -1,6 +1,15 @@
 public class SHA3SHAKE {
     public SHA3SHAKE() {}
 
+    private long[] spongeState = new long[25];
+
+    private int rate;
+
+    private int absorbed;
+
+    private byte pad;
+
+    private int digestLen;
 
     /**
     * Initialize the SHA-3/SHAKE sponge.
@@ -8,7 +17,12 @@ public class SHA3SHAKE {
     * @param suffix SHA-3/SHAKE suffix (SHA-3 digest bitlength = suffix, SHAKE sec level =
     suffix)
     */
-    public void init(int suffix) { /* … */ }
+    public void init(int suffix) { 
+
+        // 
+        rate = 1600 - (2 * suffix) / 8;
+
+     }
 
     /**
     * Update the SHAKE sponge with a byte-oriented data chunk.
