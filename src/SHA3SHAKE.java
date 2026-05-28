@@ -208,9 +208,6 @@ public class SHA3SHAKE {
         return sponge.squeeze(out, L / 8);
     }
 
-    /**
-     * 
-     */
     private void keccak() 
      {
         for(int round = 0; round < 24; round++)
